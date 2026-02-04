@@ -1,0 +1,63 @@
+body{
+    color: aliceblue;
+    background-color: #28282D;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+h2{
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+p{
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.danger{
+    color: #fa9434;
+}
+
+button{
+    background-color: aquamarine;
+    padding: 5px 10px 5px 10px;
+    /* paddingは、要素の広さをあらわし、
+    上 右 下 左 の順で書く */
+    border-radius: 7px;
+}
+
+.miniButton{
+    background-color: #C2DAC7;
+    padding: 3px 5px 3px 5px;
+}
+
+.blueButton{
+    background-color: #a6c2fc;
+}
+
+.dangerButton{
+    background-color: #ffe187;
+    border: 0px;
+}
+
+input{
+    width: 70px;
+}
+
+table{
+    margin-top: 20px;
+    border: 1px solid;
+    border-collapse: collapse;
+    border-color: #ACADB7;
+}
+
+th,
+td{
+    border: 1px solid;
+    border-color: #ACADB7;
+}

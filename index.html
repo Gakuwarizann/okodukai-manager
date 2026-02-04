@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+  <title>おこづかい帳</title>
+</head>
+
+<body>
+    <h1>おこづかい帳</h1>
+    <h2>↓支出(円)↓</h2>
+    <div class="yenInputUI">
+        <input type="number" id="pay">
+        <select id="chestOrWallet">
+            <option>財布</option>
+            <option>タンス</option>
+        </select>
+
+        <select id="payWay">
+            <option>手芸</option>
+            <option>ガジェット</option>
+            <option>それ以外</option>
+        </select>
+    <button type="button" id="okButton">確定</button>
+    </div>
+    <br>
+
+    <table>
+        
+
+        <tr>
+            <td>財布</td>
+            <td id="walletZandaka">ここに財布残高が入ります</td>
+        </tr>    
+
+        <tr>
+            <td>タンス</td>
+            <td id="chestZandaka">ここにタンス残高が入ります</td>            
+        </tr>
+
+        <tr>
+            <td>残高合計</td>
+            <td id="allMoney">ここに数字が入ります</td>
+        </tr>
+    </table>
+
+    <br>
+
+    <table>
+        
+
+        <tr>
+            <td>残り手芸予算</td>
+            <td id="craftBudgetLeft">ここに残り手芸予算が入ります</td>
+        </tr>    
+
+        <tr>
+            <td>残りガジェット予算</td>
+            <td id="gajeBudgetLeft">ここに残りガジェット予算が入ります</td>            
+        </tr>
+
+    </table>
+
+
+    <br>
+    <h2>↓収入(円)↓</h2>
+    <div class="yenInputUI">
+        <input type="number" id="income">
+        <select id="chestOrWallet_income">
+            <option>財布</option>
+            <option>タンス</option>
+        </select>
+    
+    <button type="button" id="okButton_income">確定</button>
+    </div>
+    <br>
+    <br>
+
+    <h2>設定</h2>
+    <p>↓用途別・月ごとに使っていい金額↓</p>
+    <div class="yenInputUI">
+        <input type="number" id="budget">
+        <select id="budgetWay">
+            <option>手芸</option>
+            <option>ガジェット</option>
+        </select>
+        
+        <button type="button" id="budgetOk" class="miniButton">確定</button>        
+    </div>
+    
+    <table>
+        <tr>
+            <td>手芸予算/月</td>
+            <td id="craftBudget">ここに手芸予算が入ります</td>
+        </tr>
+
+        <tr>
+            <td>ガジェット予算/月</td>
+            <td id="gajeBudget">ここにガジェット予算が入ります</td>
+        </tr>
+
+        <tr>
+            <td>残り/月</td>
+            <td id="otherBudget">ここに残りが入ります</td>
+        </tr>
+    </table>
+    <p>※毎月1000円は貯金すること(突然、高いものが欲しくなったとき用)</p>
+    <br>
+
+
+    <p>↓月初めに押してね。</p>
+    <button type="button" id="monthReset" class="blueButton">残り予算リセット</button>
+
+    <!--
+
+    <h2>初期設定</h2>   
+    <p>初期財布残高</p>
+    <div class="yenInputUI">
+        <input type="number" id="startWallet">
+    </div>
+    <br>
+    <button type="button" id="startWalletOk" class ="miniButton">確定</button>
+    
+    <br>
+    <br>
+
+    <p>初期タンス残高</p>
+    <div class="yenInputUI">
+        <input type="number" id="startChest">
+    </div>
+    <br>
+    <button type="button" id="startChestOk" class ="miniButton">確定</button>
+    <br>
+
+    -->
+
+    <br>
+    <br>
+    <br>
+
+    <p>※下は開発用です</p>
+    <p class="danger">※ローカルストレージ内のデータが消えます!</p>
+    <p class="danger">特別な理由がなければ触らないでね。</p>
+    <button type="button" id="kesukai" class="dangerButton">
+        データを消す
+    </button>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
