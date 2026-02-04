@@ -4,19 +4,20 @@ body{
     font-family: "M PLUS Rounded 1c", sans-serif;
     font-weight: 400;
     font-style: normal;
+    font-size:120%;
 }
 
 
 h2{
     font-family: "M PLUS Rounded 1c", sans-serif;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 90%;
 }
 
 p{
     font-family: "M PLUS Rounded 1c", sans-serif;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 80%;
 }
 
 .danger{
@@ -24,20 +25,50 @@ p{
 }
 
 button{
-    background-color: aquamarine;
-    padding: 5px 10px 5px 10px;
+    background-color: rgb(159, 243, 234);
+    padding: 0px 12px 0px 12px;
     /* paddingは、要素の広さをあらわし、
     上 右 下 左 の順で書く */
     border-radius: 7px;
+
+
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:80%;
+}
+
+button:active{
+    background-color: #7fa09e;
+}
+
+select{
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size:80%;
 }
 
 .miniButton{
     background-color: #C2DAC7;
-    padding: 3px 5px 3px 5px;
+    padding: 0px 12px 0px 12px;
+}
+
+.miniButton:active{
+    background-color: #9db4b2;
 }
 
 .blueButton{
     background-color: #a6c2fc;
+}
+
+.blueButton:active{
+    background-color: #969fb4;
+}
+
+
+.yomikomi{
+    padding:0 10px 0 0px;
 }
 
 .dangerButton{
@@ -45,9 +76,21 @@ button{
     border: 0px;
 }
 
-input{
-    width: 70px;
+.dangerButton:active{
+    background-color: #cfab8a;
 }
+
+input{
+    width: 100px;
+    height: 23px;
+    border-radius: 7px;
+}
+
+select{
+    height: 25px;
+    border-radius: 7px;
+}
+
 
 table{
     margin-top: 20px;

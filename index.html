@@ -108,40 +108,28 @@
             <td id="otherBudget">ここに残りが入ります</td>
         </tr>
     </table>
-    <p>※毎月1000円は貯金すること(突然、高いものが欲しくなったとき用)</p>
+    <p>※毎月1000円は貯金すること</p>
+    <p>(突然、高いものが欲しくなったとき用)</p>
     <br>
 
 
     <p>↓月初めに押してね。</p>
     <button type="button" id="monthReset" class="blueButton">残り予算リセット</button>
 
-    <!--
+    <br>
+    <br>
+    <p>↓jsonとして端末に保存する</p>
+    <button type="button" id="downloadJSON">保存する</button>
 
-    <h2>初期設定</h2>   
-    <p>初期財布残高</p>
-    <div class="yenInputUI">
-        <input type="number" id="startWallet">
-    </div>
-    <br>
-    <button type="button" id="startWalletOk" class ="miniButton">確定</button>
-    
     <br>
     <br>
-
-    <p>初期タンス残高</p>
-    <div class="yenInputUI">
-        <input type="number" id="startChest">
-    </div>
-    <br>
-    <button type="button" id="startChestOk" class ="miniButton">確定</button>
-    <br>
-
-    -->
+    <p>↓保存されたjsonファイルを読み込む</p>
+    <input type="file" id="importFile" accept=".json" class="yomikomi">
+    <button type="button" id="importButton">読み込み</button>
 
     <br>
     <br>
     <br>
-
     <p>※下は開発用です</p>
     <p class="danger">※ローカルストレージ内のデータが消えます!</p>
     <p class="danger">特別な理由がなければ触らないでね。</p>

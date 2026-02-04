@@ -68,17 +68,20 @@ function kiroku(){
     let pay = document.getElementById("pay");
     let chestOrWallet = document.getElementById("chestOrWallet");
     let payWay = document.getElementById("payWay");
+    if (Number(pay.value) >= 0 ){
+     if ((chestOrWallet.value) == "タンス"){
+         chest = chest - Number(pay.value);    
+     } else {
+         wallet = wallet - Number(pay.value);
+     }
 
-    if ((chestOrWallet.value) == "タンス"){
-        chest = chest - Number(pay.value);    
-    } else {
-        wallet = wallet - Number(pay.value);
-    }
-
-    if ((payWay.value) == "手芸"){
-        craftBudgetLeft = craftBudgetLeft - Number(pay.value);
-    }else if ((payWay.value) == "ガジェット"){
-        gajeBudgetLeft = gajeBudgetLeft - Number(pay.value);
+     if ((payWay.value) == "手芸"){
+         craftBudgetLeft = craftBudgetLeft - Number(pay.value);
+     }else if ((payWay.value) == "ガジェット"){
+          gajeBudgetLeft = gajeBudgetLeft - Number(pay.value);
+      }
+    }else{
+        alert("マイナスの金額は 入力できないヨ！");
     }
 
     localStorage.setItem("chest", chest); 
@@ -99,13 +102,15 @@ okButton.addEventListener("click",textKoushin);
 function incomeKiroku(){
     let income = document.getElementById("income");
     let chestOrWallet_income = document.getElementById("chestOrWallet_income")
-
-    if ((chestOrWallet_income.value)== "タンス"){
-        chest = chest + Number(income.value);
-    } else {
-        wallet = wallet + Number(income.value);
+    if (Number(income.value) >= 0){
+        if ((chestOrWallet_income.value)== "タンス"){
+            chest = chest + Number(income.value);
+        } else {
+         wallet = wallet + Number(income.value);
+        }
+    }else{
+        alert("マイナスの金額は 入力できないヨ！");
     }
-
     localStorage.setItem("chest", chest); 
     localStorage.setItem("wallet", wallet);
 
@@ -117,16 +122,21 @@ function incomeKiroku(){
 let okButton_income = document.getElementById("okButton_income");
 okButton_income.addEventListener("click",incomeKiroku);
 
+
+
 function budgetKiroku(){
     let budget = document.getElementById("budget");
     let budgetWay = document.getElementById("budgetWay");
-
-    if ((budgetWay.value)== "手芸"){
-        craftBudget = budget.value;
-        craftBudgetLeft = craftBudget;
-    }else if ((budgetWay.value)== "ガジェット"){
-        gajeBudget = budget.value;
-        gajeBudgetLeft = gajeBudget;
+    if ((budget.value)>= 0){
+        if ((budgetWay.value)== "手芸"){
+          craftBudget = budget.value;
+           craftBudgetLeft = craftBudget;
+        } else if ((budgetWay.value)== "ガジェット"){
+         gajeBudget = budget.value;
+         gajeBudgetLeft = gajeBudget;
+        }
+    }else{
+        alert("マイナスの金額は 入力できないヨ！");
     }
     localStorage.setItem("craftB",craftBudget)
     localStorage.setItem("gajeB",gajeBudget)
@@ -138,39 +148,79 @@ let budgetOk = document.getElementById("budgetOk");
 budgetOk.addEventListener("click",budgetKiroku);
 
 
+function everyMonthReset(){
+    craftBudgetLeft = craftBudget;
+    gajeBudgetLeft = gajeBudget;
+    textKoushin();
+}
+
+function exportData(){
+    let json = JSON.stringify(saveData);
+    let blob = new Blob([json], { type: "application/json" });
+
+    let a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "okodukai_backup.json";
+    a.click();
+}
+
+function dlJSON(){
+    let saveData = {
+        "wallet": wallet,
+        "chest": chest,
+        "craftBudget": craftBudget,
+        "gajeBudget": gajeBudget,
+        "craftBudgetLeft": craftBudgetLeft,
+        "gajeBudgetLeft": gajeBudgetLeft
+    };
+
+    exportData();
+}
+
+
+let downloadJSON = document.getElementById("downloadJSON");
+downloadJSON.addEventListener("click",dlJSON)
+
+function yomikomi(){
+    let fileInput = document.getElementById("importFile");
+    let file = fileInput.files[0];
+    if (!file) return;
+
+    let reader = new FileReader();
+    reader.onload = function(){
+        let data = JSON.parse(reader.result);
+
+        wallet = Number(data.wallet) || 0;
+        chest  = Number(data.chest)  || 0;
+
+        textKoushin();
+    };
+
+    reader.readAsText(file);
+}
+
+
+
+
+
+let importButton= document.getElementById("inportButton");
+importButton.addEventListener(click,yomikomi);
+
+
+
+let monthReset = document.getElementById("monthReset");
+monthReset.addEventListener("click",everyMonthReset);
 
 
 function kesuyo(){
     let noRegret = prompt("ローカルストレージ内のデータを本当に消したいなら、「消します」と入力してください。")
     if (noRegret == "消します"){
         localStorage.clear();
-        alert("データを消しました。ページを再読みこみしてね。");
+        location.reload();
     }
 }
 
 let deleteButton = document.getElementById("kesukai");
 deleteButton.addEventListener("click",kesuyo)
-
-/*function startup_wallet(){
-    let startWalletImput = document.getElementById("startWallet");
-    wallet = Number(startWalletImput.value || 0);
-    textKoushin();
-}
-
-let startWalletOk = document.getElementById("startWalletOk");
-startWalletOk.addEventListener("click",startup_wallet)
-
-
-
-function startup_chest(){
-    let startChestImput = document.getElementById("startChest");
-    chest = Number(startChestImput.value || 0);
-    textKoushin();
-}
-
-let startChestOk = document.getElementById("startChestOk");
-startChestOk.addEventListener("click",startup_chest)
-
-*/
 
 
