@@ -88,7 +88,7 @@ function kiroku(){
     localStorage.setItem("wallet", wallet);
 
     localStorage.setItem("craftBLeft", craftBudgetLeft); 
-    localStorage.setItem("gajeBleft", gajeBudgetLeft);
+    localStorage.setItem("gajeBLeft", gajeBudgetLeft);
 
     textKoushin();
     //alert("記録しました");
@@ -154,7 +154,7 @@ function everyMonthReset(){
     textKoushin();
 }
 
-function exportData(){
+function exportData(saveData){
     let json = JSON.stringify(saveData);
     let blob = new Blob([json], { type: "application/json" });
 
@@ -174,7 +174,7 @@ function dlJSON(){
         "gajeBudgetLeft": gajeBudgetLeft
     };
 
-    exportData();
+    exportData(saveData);
 }
 
 
@@ -189,10 +189,15 @@ function yomikomi(){
     let reader = new FileReader();
     reader.onload = function(){
         let data = JSON.parse(reader.result);
-
         wallet = Number(data.wallet) || 0;
-        chest  = Number(data.chest)  || 0;
+        chest  = Number(data.chest) || 0;
+        craftBudget = Number(data.craftBudget) || 0;
+        gajeBudget = Number(data.gajeBudget) || 0;
+        craftBudgetLeft = Number(data.craftBudgetLeft) || 0;
+        gajeBudgetLeft = Number(data.gajeBudgetLeft) || 0;
 
+        otherBudget = 4000 - craftBudget - gajeBudget;
+        
         textKoushin();
     };
 
@@ -203,8 +208,8 @@ function yomikomi(){
 
 
 
-let importButton= document.getElementById("inportButton");
-importButton.addEventListener(click,yomikomi);
+let importButton= document.getElementById("importButton");
+importButton.addEventListener("click",yomikomi);
 
 
 
