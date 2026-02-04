@@ -161,7 +161,9 @@ function exportData(saveData){
     let a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = "okodukai_backup.json";
+    document.body.appendChild(a); // ★追加
     a.click();
+    document.body.removeChild(a); // ★後始末
 }
 
 function dlJSON(){
