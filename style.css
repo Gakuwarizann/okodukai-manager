@@ -25,12 +25,13 @@ p{
 }
 
 button{
-    background-color: rgb(159, 243, 234);
+    background-color: aliceblue;
     padding: 0px 12px 0px 12px;
     /* paddingは、要素の広さをあらわし、
     上 右 下 左 の順で書く */
     border-radius: 7px;
 
+    border-color: #6e99ef;
 
     font-family: "M PLUS Rounded 1c", sans-serif;
     font-weight: 400;
@@ -39,7 +40,7 @@ button{
 }
 
 button:active{
-    background-color: #7fa09e;
+    background-color:gray;
 }
 
 select{
@@ -50,8 +51,9 @@ select{
 }
 
 .miniButton{
-    background-color: #C2DAC7;
+    background-color: #ddffe4;
     padding: 0px 12px 0px 12px;
+    border-color: #5dcea7;
 }
 
 .miniButton:active{
@@ -59,11 +61,12 @@ select{
 }
 
 .blueButton{
-    background-color: #a6c2fc;
+    background-color: #ffe1f8;
+    border-color: #e892bd;
 }
 
 .blueButton:active{
-    background-color: #969fb4;
+    background-color: #c595af;
 }
 
 
@@ -72,12 +75,13 @@ select{
 }
 
 .dangerButton{
-    background-color: #ffe187;
+    background-color: #000000;
+    border-color: #e97676;
     border: 0px;
 }
 
 .dangerButton:active{
-    background-color: #cfab8a;
+    background-color: #545151;
 }
 
 input{
